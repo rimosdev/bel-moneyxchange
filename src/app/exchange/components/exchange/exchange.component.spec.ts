@@ -46,10 +46,10 @@ describe('ExchangeComponent', () => {
   fit('Calculate currency exchange 100 EUR to USD',async ()=> {
     // Arrange
     let exchange_component = component;
-    // Act
     exchange_component.curr.from = 'EUR';
     exchange_component.curr.to = 'USD';
     exchange_component.exchangeForm.get('exchange_from').setValue('100');
+    // Act
     await exchange_component.calculate();
     const calculated = exchange_component.rate.to;
     exchange_component.exchangeForm.get('exchange_to').setValue(calculated);
@@ -61,10 +61,10 @@ describe('ExchangeComponent', () => {
   fit('Calculate currency exchange NaN EUR to USD - toBeNull',async ()=> {
     // Arrange
     let exchange_component = component;
-    // Act
     exchange_component.curr.from = 'EUR';
     exchange_component.curr.to = 'USD';
     exchange_component.exchangeForm.get('exchange_from').setValue('100EUROS');
+    // Act
     await exchange_component.calculate();
     const calculated = exchange_component.rate.to;
     exchange_component.exchangeForm.get('exchange_to').setValue(calculated);
@@ -76,10 +76,10 @@ describe('ExchangeComponent', () => {
   fit('Calculate currency exchange void EUR to USD - toBeNull',async ()=> {
     // Arrange
     let exchange_component = component;
-    // Act
     exchange_component.curr.from = 'EUR';
     exchange_component.curr.to = 'USD';
     exchange_component.exchangeForm.get('exchange_from').setValue('');
+    // Act
     await exchange_component.calculate();
     const calculated = exchange_component.rate.to;
     exchange_component.exchangeForm.get('exchange_to').setValue(calculated);
