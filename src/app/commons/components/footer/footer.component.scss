@@ -1,0 +1,12 @@
+@import './../../../../styles/constants';
+footer {
+  margin-top: 30px;
+  background: $secondary-color-light;
+  padding: 30px;
+  color: #fff;
+  .logo {
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 15px;
+  }
+}

@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'styles/constants';
+@import 'styles/bootstrap.css';
+@import 'styles/mediaquery';
+@import 'styles/forms';
+
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  font-family: $primary-font;
+  font-size: 16px;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #fff;
+  scroll-behavior: smooth;
+  color: #4A4A4A;
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+  outline: none;
+}
+
+textarea {
+  font-family: $primary-font;
+  font-weight: lighter;
+}
+
+button {
+  border: none;
+  background: none;
+  // font-family: $primary-font-Bold;
+}
+
+button {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+#container {
+  padding-top: 105px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

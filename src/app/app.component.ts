@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bel-moneyxchange';
+  menu_items = [
+    { url: '/exchange', title: 'Exchange' },
+    { url: '/currencies/list', title: 'Currencies' }
+  ];
 }

@@ -1,0 +1,13 @@
+<nav class="navbar-light" id="nav-top" [ngClass]="{'expanded': expanded}">
+  <div class="nav-header navbar-expand-md">
+    <img src="./../../../../assets/images/logo.png" class="logo" alt="Traffic logo">
+    <button type="button" class="navbar-toggler" (click)="toogleMenu()" [ngClass]="{'collapsed': !expanded}"><span class="navbar-toggler-icon"></span></button>
+  </div>
+  <ul class="nav-navigation">
+    <!-- <li class="menu-item"><a [routerLink]="['/view/all']" routerLinkActive="active">Review</a></li> -->
+
+    <li *ngFor="let item of menu_items">
+      <a (click)="hideMenu()" [routerLink]="[item.url]" routerLinkActive="active" [class]="'item item-' + item.url">{{item.title}}</a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,83 @@
+// variables:
+$breakpoint-xxs: 320px;
+$breakpoint-xs: 480px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+// MediaQueries From $media
+@mixin media($media) {
+  @if $media == xxs {
+    @media (max-width: $breakpoint-xxs - 1) { @content; }
+  }
+  @if $media == xs {
+    @media (max-width: $breakpoint-sm - 1) { @content; }
+  }
+  @else if $media == sm {
+    @media (min-width: $breakpoint-sm) { @content; }
+  }
+  @else if $media == md {
+    @media (min-width: $breakpoint-md) { @content; }
+  }
+  @else if $media == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  }
+  @else if $media == xl {
+    @media (min-width: $breakpoint-xl) { @content; }
+  }
+  @else if $media == xxl {
+    @media (min-width: $breakpoint-xxl) { @content; }
+  }
+}
+
+@mixin mediaBeetwen ($size1, $size2) {
+  @media (min-width: getSizeMediaQ($size1)) and (max-width: getSizeMediaQ($size2) - 1) {
+    @content;
+  }
+}
+
+@function getSizeMediaQ($size) {
+  @if $size == xxs {
+    @return $breakpoint-xxs;
+  }
+  @if $size == xs {
+    @return $breakpoint-sm;
+  }
+  @if $size == sm {
+    @return $breakpoint-sm;
+  }
+  @if $size == md {
+    @return $breakpoint-md;
+  }
+  @if $size == lg {
+    @return $breakpoint-lg;
+  }
+  @if $size == xl {
+    @return $breakpoint-xl;
+  }
+  @if $size == xxl {
+    @return $breakpoint-xxl;
+  }
+  @return 0;
+}
+
+// MediaQueries up To $media
+@mixin mediaUpTo($media) {
+  @if $media == xs {
+    @media (max-width: $breakpoint-sm - 1) { @content; }
+  }
+  @else if $media == sm {
+    @media (max-width: $breakpoint-sm - 1) { @content; }
+  }
+  @else if $media == md {
+    @media (max-width: $breakpoint-md - 1) { @content; }
+  }
+  @else if $media == lg {
+    @media (max-width: $breakpoint-lg - 1) { @content; }
+  }
+  @else if $media == xl {
+    @media (max-width: $breakpoint-xl - 1) { @content; }
+  }
+}

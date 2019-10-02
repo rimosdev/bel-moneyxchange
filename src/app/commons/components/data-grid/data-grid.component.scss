@@ -1,0 +1,35 @@
+@import './../../../../styles/constants';
+
+h2 {
+  padding: 10px;
+  font-size: 1rem;
+  background: $secondary-color;
+  color: #fff;
+  letter-spacing: .2rem;
+  margin-bottom: 0;
+}
+
+.data-grid {
+  width: 100%;
+  display:table;
+  .grid-header, .grid-data {
+    .cell {
+      padding: 5px;
+      font-size: 0.8rem;
+    }
+  }
+  .grid-header {
+    display: table-row;
+    .cell {
+      display: table-cell;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+  .grid-data {
+    display: table-row;
+    .cell {
+      display: table-cell;
+    }
+  }
+}
