@@ -90,7 +90,7 @@ export class ExchangeComponent implements OnInit {
   async calculate() {
     // Set values for the form
     this.setCurrencyValues();
-    if(this.rate.from) { // If has from value
+    if(this.rate.from && !isNaN(this.rate.from)) { // If has from value
       console.log('calculate currencies');
       if(!this.has_persistence) { // If doesn't have persistence, execute httpRequest
         clearInterval(this.persistence_interval_event);
@@ -106,7 +106,7 @@ export class ExchangeComponent implements OnInit {
     }
     else {
       this.rate.to = null;
-      console.log();
+      console.log('Format error');
     }
   }
 

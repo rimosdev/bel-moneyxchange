@@ -53,9 +53,38 @@ describe('ExchangeComponent', () => {
     await exchange_component.calculate();
     const calculated = exchange_component.rate.to;
     exchange_component.exchangeForm.get('exchange_to').setValue(calculated);
-    console.log('RATES:', exchange_component.rates);
-    // Assert
     const esperado = 100 * +exchange_component.rates['USD'];
+    // Assert
+    expect(calculated).toEqual(esperado);
+  });
+
+  fit('Calculate currency exchange NaN EUR to USD - toBeNull',async ()=> {
+    // Arrange
+    let exchange_component = component;
+    // Act
+    exchange_component.curr.from = 'EUR';
+    exchange_component.curr.to = 'USD';
+    exchange_component.exchangeForm.get('exchange_from').setValue('100EUROS');
+    await exchange_component.calculate();
+    const calculated = exchange_component.rate.to;
+    exchange_component.exchangeForm.get('exchange_to').setValue(calculated);
+    const esperado = null;
+    // Assert
+    expect(calculated).toEqual(esperado);
+  });
+
+  fit('Calculate currency exchange void EUR to USD - toBeNull',async ()=> {
+    // Arrange
+    let exchange_component = component;
+    // Act
+    exchange_component.curr.from = 'EUR';
+    exchange_component.curr.to = 'USD';
+    exchange_component.exchangeForm.get('exchange_from').setValue('');
+    await exchange_component.calculate();
+    const calculated = exchange_component.rate.to;
+    exchange_component.exchangeForm.get('exchange_to').setValue(calculated);
+    const esperado = null;
+    // Assert
     expect(calculated).toEqual(esperado);
   });
 
